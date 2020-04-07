@@ -1,0 +1,18 @@
+<div class="form-login">
+    <div class="login-title">
+        <h1>LOGIN CMS</h1>
+    </div>
+    <div class="login">
+        <form>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control witd-350" [(ngModel)]="username" name="username">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="password" name="password">
+            </div>
+        <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+        </form>
+    </div>
+</div>
