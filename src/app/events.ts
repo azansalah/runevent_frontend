@@ -1,17 +1,17 @@
 export const events = [
     {
         name: 'วิ่งการกุศล',
-        lacation: 'ละงู',
+        location: 'ละงู',
         date: '31-05-2020'
     },
     {
         name: 'วิ่งควาย',
-        lacation: 'ปากบารา',
+        location: 'ปากบารา',
         date: '20-09-2020'
     },
     {
         name: 'วิ่งสู้ covid-19',
-        lacation: 'หาดใหญ่',
+        location: 'หาดใหญ่',
         date: '05-10-2020'
     }
 

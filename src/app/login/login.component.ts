@@ -9,15 +9,12 @@ import {Router} from "@angular/router";
 })
 
 export class LoginComponent implements OnInit {
+
     constructor(
         private http: HttpClient,
-        private router: Router
-            
-        
+        private router: Router   
     ) {}
 
-    public result: string[]
-    public object: any
     public username: any
     public password: any
     public status: any
@@ -27,18 +24,19 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        this.object = {
+        let object = {
             username: this.username,
             password: this.password
         }
         
-        this.http.post('http://api-runevent.com/auth/login', this.object).subscribe(data => {
-            this.result = data['data']
-            this.status = data['status']    
+        this.http.post('http://api-runevent.com/auth/login', object).subscribe(data => {
+               
+            let result: any
+            result = data
 
-            if(this.status == '200') {
+            if(result.status == '200') {
                 localStorage.setItem('username', this.username);
-                localStorage.setItem('token', this.result['result']['token']);
+                localStorage.setItem('token', result.data.result.token);
                 this.router.navigate(['eventlist']);
             }else {
     
