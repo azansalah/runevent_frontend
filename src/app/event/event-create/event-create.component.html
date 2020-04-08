@@ -1,0 +1,82 @@
+<navbar></navbar>
+<div class="form-login">
+    <div class="login-title">
+        <h1 class="title">CREATE EVENT</h1>
+    </div>
+    <div class="login">
+
+            <div class="form-group">
+                <label>ชื่องาน</label>
+                <input  type="text" 
+                        class="form-control witd-350" 
+                        [(ngModel)]="name" 
+                        name="name">
+            </div>
+
+            <div class="form-group">
+                <label>สถานที่</label>
+                <input  type="text" 
+                        class="form-control" 
+                        [(ngModel)]="location" 
+                        name="location">
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12 form-group" >
+                    <label>เวลา</label>
+                        <input
+                            class="form-control"
+                            placeholder="กำหนดวันจัดงาน"
+                            #datepickerYMD="bsDatepicker"
+                            bsDatepicker
+                            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                            [(ngModel)]="date" 
+                            name="date">
+                </div>
+
+                
+            </div>
+
+            <button type="button" class="btn btn-primary add" (click)="addPackage()">เพิ่มแพ็คเก็จ</button><br>
+
+            <div *ngFor="let package of packages let i = index" class="row package-box">
+                <div class="row">
+
+                    <div>
+                        <label> ชื่อแพ็คเก็จ :</label>
+                        <input name="package-name" type="text" [(ngModel)]="package.name" >
+                    </div>
+                        
+                    <div>
+                        <label>เวลา :</label>
+                        <input name="package-time" type="text" [(ngModel)]="package.time">
+                    </div>
+
+                    <div>
+                        <label>ค่าสมัคร(บาท) :</label>
+                        <input name="package-price" type="text" [(ngModel)]="package.price">
+                    </div>
+
+                    <div>
+                        <button type="button" class="btn btn-primary add" (click)="deletePackage(i)">ลบ</button>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div>
+                        <input name="package-islimit" type="checkbox" [(ngModel)]="package.isLimit">
+                        <label>จำกัดผู้สมัคร</label>
+                    </div>
+
+                    <div *ngIf="package.isLimit">
+                        <label>จำนวนผู้สมัคร(คน) :</label>
+                        <input name="package-limit-count" type="text" [(ngModel)]="package.limitCount">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary commit" (click)="createEvent()">ตกลง</button>
+
+    </div>
+</div>

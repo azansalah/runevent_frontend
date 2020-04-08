@@ -1,0 +1,27 @@
+.bg{
+    background-color: rgb(149, 182, 204)
+}
+
+.btn-outline-success {
+    color: #20618c;
+    background-color: transparent;
+    background-image: none;
+    border-color: #20618c;
+}
+.navbar-light .navbar-brand {
+    color: #20618c;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-right: 3rem;
+}
+
+.navbar-collapse{
+    font-weight: 300;
+}
+
+.btc{
+    margin-left: 10px;
+    background-color: #aa4953;
+    border-color: #aa4953;
+    
+}

@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+
         let object = {
             username: this.username,
             password: this.password
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
             if(result.status == '200') {
                 localStorage.setItem('username', this.username);
                 localStorage.setItem('token', result.data.result.token);
-                this.router.navigate(['eventlist']);
+                this.router.navigate(['cms/event/list']);
             }else {
     
             }

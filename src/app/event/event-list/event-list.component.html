@@ -1,28 +1,22 @@
-<h2>Event List</h2>
+<body>
+    <navbar></navbar>
 
-<div *ngFor="let event of events">
-    <h3>
-        <a [title]="event.name + 'details'">
-            {{event.name}}
-        </a>
-    </h3>
+    <h2 class="title">Event List</h2>
 
-    <p>
-        สถานที่จัดงาน : {{event.location}}
-    </p>
-
-    <p>
-        เวลา : {{event.date}}
-    </p>
-
-    <p *ngFor="let package of event.packages">
-        Packages : {{package.name}}
-    </p>
-
-    
-
-    <button (click)="register()">
-        ลงทะเบียน
-    </button>
-
-</div> 
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ชื่องาน</th>
+            <th scope="col">สถานที่</th>
+            <th scope="col">วันจัดงาน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events" class="container">
+            <td >{{event.name}}</td>
+            <td>{{event.location}}</td>
+            <td>{{event.date}}</td>
+          </tr>
+        </tbody>
+      </table>
+</body> 

@@ -24,7 +24,7 @@ export class EventListComponent implements OnInit {
         let token = localStorage.getItem('token');
 
         if(!token) {
-            this.router.navigate(['login']);
+            this.router.navigate(['cms/login']);
         }
 
         this.getEvent()
