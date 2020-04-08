@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
        
     }
 
-    singOut(){
+    signOut(){
         localStorage.removeItem('token');
         localStorage.removeItem('username'); 
         this.router.navigate(['cms/login']);   
