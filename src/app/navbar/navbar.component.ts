@@ -15,13 +15,6 @@ export class NavbarComponent implements OnInit {
     public show: any
     
     ngOnInit() {
-
-        if(localStorage.getItem('token')){
-            this.show = true
-        }else{
-            this.show = false
-        }
-    console.log(this.show);
        
     }
 

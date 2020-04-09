@@ -13,6 +13,7 @@
             <th scope="col">ชื่องาน</th>
             <th scope="col">สถานที่</th>
             <th scope="col">วันจัดงาน</th>
+            <th scope="col">จัดการ</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
             <td >{{event.name}}</td>
             <td>{{event.location}}</td>
             <td>{{event.date}}</td>
+            <td><a>รายละเอียด</a><a [routerLink]="['/cms/event/edit',event.id]">แก้ไข</a>|<a>ลบ</a></td>
           </tr>
         </tbody>
       </table>

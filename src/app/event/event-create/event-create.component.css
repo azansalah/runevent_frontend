@@ -14,3 +14,24 @@
 .package-box{
     display: block;
 }
+
+.form-inline{
+    padding-left: 80px;
+}
+
+.padding{
+    padding-left: 80px;
+    padding-top: 50px;
+
+}
+
+
+.delete-btn{   
+    margin-left: 30px;
+}
+
+.label-pading{
+    margin-bottom: 0px;
+    padding-top: 12px;
+
+}

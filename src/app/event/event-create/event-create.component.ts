@@ -19,6 +19,7 @@ export class EventCreateComponent implements OnInit {
     public name: any
     public location: any
     public date: any
+    public time: any
     public packages: any[]=[]
 
     ngOnInit() {
@@ -32,16 +33,15 @@ export class EventCreateComponent implements OnInit {
 
     createEvent(){
 
-        this.date=moment();
+        //this.date=moment();
 
         let opject = {
             name: this.name,
             location: this.location,
-            date: this.date.format('YYYY-MM-DD'),
+            // date: this.date.format('YYYY-MM-DD'),
             packages : this.packages
               
         }
-        // console.log(this.location);
         // console.log(this.date);
         // console.log(this.date.format('YYYY-MM-DD'));
         
@@ -61,10 +61,12 @@ export class EventCreateComponent implements OnInit {
     }
 
     addPackage() {
+        let date = moment();
         let objPackage = {
             id: null,
             name: '',
-            time: '00:00:00',
+            date: date.format('YYYY-MM-DD'),
+            time: '00:00',
             price: 0,
             isLimit: false,
             limitCount: null
@@ -73,7 +75,6 @@ export class EventCreateComponent implements OnInit {
         this.packages.push(objPackage)  
         
         console.log(this.packages);
-        
     }
 
     deletePackage(index){

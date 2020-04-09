@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventCreateComponent} from './event/event-create/event-create.component';
+
 
 
 
@@ -35,6 +37,7 @@ import { EventCreateComponent} from './event/event-create/event-create.component
     TooltipModule.forRoot(),
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
+    TimepickerModule,
     //FontAwesomeModule,
     RouterModule.forRoot([
       {
@@ -54,7 +57,8 @@ import { EventCreateComponent} from './event/event-create/event-create.component
         component: EventCreateComponent
       }
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TimepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
