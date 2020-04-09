@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -34,6 +35,7 @@ import { EventCreateComponent} from './event/event-create/event-create.component
     TooltipModule.forRoot(),
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
+    //FontAwesomeModule,
     RouterModule.forRoot([
       {
         path: '',

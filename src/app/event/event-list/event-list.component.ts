@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+//import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -11,12 +12,15 @@ import { Router } from "@angular/router";
 
 export class EventListComponent implements OnInit {
 
+    
+
     constructor( 
         private router: Router,
         private http: HttpClient
     ) {}
 
     public events
+    //public faCoffee = faCoffee;
 
 
     ngOnInit() {

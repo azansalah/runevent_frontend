@@ -42,8 +42,28 @@
             <div *ngFor="let package of packages let i = index" class="row package-box">
                 <div class="row">
 
-                    <div>
-                        <label> ชื่อแพ็คเก็จ :</label>
+                    <form class="form-inline">
+                        <div class="form-group">
+                          <label>ชื่อแพ็คเก็จ :</label>
+                          <input type="text" class="form-control" name="package-name" [(ngModel)]="package.name">
+                        </div>
+
+                        <div class="form-group">
+                          <label>เวลา :</label>
+                          <input class="form-control" name="package-time" [(ngModel)]="package.time">
+                        </div>
+
+                        <div class="form-group">
+                            <label>ค่าสมัคร :</label>
+                            <input type="text" class="form-control" name="package-time" [(ngModel)]="package.price">
+                        </div>
+
+                        <button type="button" class="btn btn-primary add" (click)="deletePackage(i)">ลบ</button>
+
+                      </form>
+
+                    <!-- <div>
+                        <label>ชื่อแพ็คเก็จ :</label>
                         <input name="package-name" type="text" [(ngModel)]="package.name" >
                     </div>
                         
@@ -58,8 +78,13 @@
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-primary add" (click)="deletePackage(i)">ลบ</button>
+                        <label>เวลา :</label>
+                        <input name="package-time" type="text" [(ngModel)]="package.time">
                     </div>
+
+                    <div>
+                        <button type="button" class="btn btn-primary add" (click)="deletePackage(i)">ลบ</button>
+                    </div> -->
                 </div>
 
                 <div class="row">
@@ -69,10 +94,14 @@
                         <label>จำกัดผู้สมัคร</label>
                     </div>
 
-                    <div *ngIf="package.isLimit">
-                        <label>จำนวนผู้สมัคร(คน) :</label>
-                        <input name="package-limit-count" type="text" [(ngModel)]="package.limitCount">
-                    </div>
+                    <form class="form-inline">
+
+                        <div  *ngIf="package.isLimit" class="form-group">
+                            <label>จำนวนผู้สมัคร(คน) :</label>
+                            <input type="text" class="form-control" name="package-limit-count" [(ngModel)]="package.limitCount">
+                        </div>
+
+                    </form>
                 </div>
             </div>
 
