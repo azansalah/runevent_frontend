@@ -49,4 +49,26 @@ export class EventListComponent implements OnInit {
         });
 
     }
+
+    deleteEvent(id){
+        let eventList = []
+        eventList.push(id);
+
+        let object = {
+            eventList: eventList
+        }
+        console.log(id);
+        
+        this.http.patch('http://api-runevent.com/event/delete', object).subscribe(data => {
+               
+            let result: any
+            result = data
+
+            if(result.status == '200') {
+                this.getEvent()
+            }else {
+    
+            }
+        });
+    }
 }

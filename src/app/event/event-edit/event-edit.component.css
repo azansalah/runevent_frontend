@@ -1,0 +1,37 @@
+.commit{
+    margin-top: 50px;
+    width: 106px;
+}
+.add{
+    margin-top: 20px;
+
+}
+.title{
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.package-box{
+    display: block;
+}
+
+.form-inline{
+    padding-left: 80px;
+}
+
+.padding{
+    padding-left: 80px;
+    padding-top: 50px;
+
+}
+
+
+.delete-btn{   
+    margin-left: 30px;
+}
+
+.label-pading{
+    margin-bottom: 0px;
+    padding-top: 12px;
+
+}

@@ -17,11 +17,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let event of events" class="container">
+          <tr *ngFor="let event of events let i = index"  class="container">
             <td >{{event.name}}</td>
             <td>{{event.location}}</td>
-            <td>{{event.date}}</td>
-            <td><a>รายละเอียด</a><a [routerLink]="['/cms/event/edit',event.id]">แก้ไข</a>|<a>ลบ</a></td>
+            <td>{{event.id}}</td>
+            <td><a>รายละเอียด</a>|<button type="button" class="btn btn-primary add" routerLink="['/cms/event/edit',event.id]">แก้ไข</button>|<button  type="button" class="btn btn-primary add" (click)="deleteEvent(event.id)">ลบ</button></td>
           </tr>
         </tbody>
       </table>

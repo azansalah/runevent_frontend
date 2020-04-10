@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventCreateComponent} from './event/event-create/event-create.component';
+import { EventEditComponent} from './event/event-edit/event-edit.component';
 
 
 
@@ -27,6 +28,7 @@ import { EventCreateComponent} from './event/event-create/event-create.component
     LoginComponent,
     EventListComponent,
     EventCreateComponent,
+    EventEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,10 @@ import { EventCreateComponent} from './event/event-create/event-create.component
       {
         path: 'cms/event/create',
         component: EventCreateComponent
+      },
+      {
+        path: 'cms/event/edit',
+        component: EventEditComponent
       }
     ]),
     BrowserAnimationsModule,

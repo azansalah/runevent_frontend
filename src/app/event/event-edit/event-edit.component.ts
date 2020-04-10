@@ -5,12 +5,12 @@ import * as moment from 'moment';
 
 
 @Component({
-    selector: 'event-create',
-    templateUrl: './event-create.component.html',
-    styleUrls: ['./event-create.component.css']
+    selector: 'event-update',
+    templateUrl: './event-edit.component.html',
+    styleUrls: ['./event-edit.component.css']
 })
 
-export class EventCreateComponent implements OnInit {
+export class EventEditComponent implements OnInit {
     constructor( 
         private router: Router,
         private http: HttpClient
@@ -33,22 +33,17 @@ export class EventCreateComponent implements OnInit {
 
     createEvent(){
 
-        let packages = this.packages.map(val =>({
-            name: val.name,
-            date: moment(val.dat).format('YYYY-MM-DD'),
-            time: val.time,
-            price: val.price,
-            isLimit: val.isLimit,
-            limitCount: val.limitCount
-        }));
+        //this.date=moment();
 
         let opject = {
             name: this.name,
             location: this.location,
-            packages : packages
+            // date: this.date.format('YYYY-MM-DD'),
+            packages : this.packages
               
         }
-
+        // console.log(this.date);
+        // console.log(this.date.format('YYYY-MM-DD'));
         
         this.http.post('http://api-runevent.com/event/add',opject).subscribe(data => {
             
@@ -72,15 +67,14 @@ export class EventCreateComponent implements OnInit {
         let objPackage = {
             id: null,
             name: '',
-            date: '',
+            date: date.format(),
             time: '00:00',
-            price: '',
+            price: 0,
             isLimit: false,
             limitCount: null
         }
 
-        this.packages.push(objPackage)
-
+        this.packages.push(objPackage)  
         console.log(date.format('YYYY-MM-DD'));
         console.log(this.packages);
     }
