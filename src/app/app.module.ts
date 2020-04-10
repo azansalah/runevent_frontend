@@ -59,7 +59,7 @@ import { EventEditComponent} from './event/event-edit/event-edit.component';
         component: EventCreateComponent
       },
       {
-        path: 'cms/event/edit',
+        path: 'cms/event/edit/:id',
         component: EventEditComponent
       }
     ]),

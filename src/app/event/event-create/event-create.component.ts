@@ -32,10 +32,11 @@ export class EventCreateComponent implements OnInit {
     }
 
     createEvent(){
-
+        console.log(this.packages, 'package');
+        
         let packages = this.packages.map(val =>({
             name: val.name,
-            date: moment(val.dat).format('YYYY-MM-DD'),
+            date: moment(val.date).format('YYYY-MM-DD'),
             time: val.time,
             price: val.price,
             isLimit: val.isLimit,

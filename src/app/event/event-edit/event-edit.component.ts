@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router"
 import * as moment from 'moment';
 
 
@@ -13,69 +13,109 @@ import * as moment from 'moment';
 export class EventEditComponent implements OnInit {
     constructor( 
         private router: Router,
-        private http: HttpClient
+        private http: HttpClient,
+        private activatedRoute: ActivatedRoute
     ) {}
 
-    public name: any
-    public location: any
-    public date: any
-    public time: any
-    public packages: any[]=[]
+    public eventName: any
+    public eventLocation: any
+    public packages: any = []
+    public activatedRouteUrlSubscribe: any
+    public id: any
 
     ngOnInit() {
-        let token = localStorage.getItem('token');
-        console.log(token);
-        
+        let token = localStorage.getItem('token')    
         if(!token) {
             this.router.navigate(['cms/login']);
         }
-    }
 
-    createEvent(){
-
-        //this.date=moment();
-
-        let opject = {
-            name: this.name,
-            location: this.location,
-            // date: this.date.format('YYYY-MM-DD'),
-            packages : this.packages
-              
-        }
-        // console.log(this.date);
-        // console.log(this.date.format('YYYY-MM-DD'));
-        
-        this.http.post('http://api-runevent.com/event/add',opject).subscribe(data => {
-            
-        let result: any
-            result = data
-
-            if(result.status == '200') {
-                this.router.navigate(['cms/event/list']);
-            }else {
-    
+        this.activatedRouteUrlSubscribe = this.activatedRoute.params.subscribe(
+            params => {
+                this.id = params.id;
+                this.getEventById(this.id);
             }
-        
-        });
-
+        );
     }
+
+    ngOnDestroy(): void {
+        this.activatedRouteUrlSubscribe.unsubscribe()
+    }
+
+    getEventById(id){
+        this.http.get('http://api-runevent.com/event/get/' + id).subscribe(data =>{
+            let result: any
+            result = data
+            if(result.status == '200'){
+                let event = result.data.result
+
+                this.eventName = event.name
+                this.eventLocation = event.location
+                this.packages = event.packages.map(val => ({
+                    id: val.id,
+                    name: val.name,
+                    date: moment(val.date, 'YYYY-MM-DD').format('DD-MM-YYYY'),
+                    time: moment(val.time, 'HH:mm:ss').format('HH:mm'),
+                    price: val.price,
+                    isLimit: val.isLimit,
+                    limitCount: val.limitCount,
+                }));
+                
+                console.log(this.packages);
+                
+            }else{
+
+            }
+        });
+    }
+
+editEvent(){
+    console.log(this.packages);
+    
+    let packages = this.packages.map(val => ({
+        id: val.id,
+        name: val.name,
+        date: moment(val.date).format('YYYY-MM-DD'),
+        time: val.time,
+        price: val.price,
+        isLimit: val.isLimit,
+        limitCount: val.limitCount,
+    }));
+
+    let object = {
+        name: this.eventName,
+        location: this.eventLocation,
+        packages: packages
+    }
+    console.log(object,'object');
+
+    this.http.patch('http://api-runevent.com/event/edit/' + this.id, object).subscribe(data => {
+        let result: any
+
+        result = data
+        if(result.status == '200'){
+            this.router.navigate(['cms/event/list']);
+        }else{
+
+        }
+    });
+    }
+
+   
+    
 
     addPackage() {
-
-        let date=moment();
-
+        let date = moment(new Date()).format('DD-MM-YYYY')
         let objPackage = {
             id: null,
             name: '',
-            date: date.format(),
+            date: date,
             time: '00:00',
-            price: 0,
+            price: '',
             isLimit: false,
             limitCount: null
         }
 
         this.packages.push(objPackage)  
-        console.log(date.format('YYYY-MM-DD'));
         console.log(this.packages);
     }
 

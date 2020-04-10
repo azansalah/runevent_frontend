@@ -9,7 +9,7 @@
                 <label>ชื่องาน</label>
                 <input  type="text" 
                         class="form-control witd-350" 
-                        [(ngModel)]="name" 
+                        [(ngModel)]="eventName" 
                         name="name">
             </div>
 
@@ -17,7 +17,7 @@
                 <label>สถานที่</label>
                 <input  type="text" 
                         class="form-control" 
-                        [(ngModel)]="location" 
+                        [(ngModel)]="eventLocation" 
                         name="location">
             </div>
 
@@ -37,7 +37,7 @@
                                 placeholder="กำหนดวันจัดงาน"
                                 #datepickerYMD="bsDatepicker"
                                 bsDatepicker
-                                [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                                [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
                                 [(ngModel)]="package.date" 
                                 name="date">
                     </div> 
@@ -75,7 +75,7 @@
                 </div><hr>
             </div>
 
-            <button type="submit" class="btn btn-primary commit" (click)="createEvent()">ตกลง</button>
+            <button type="submit" class="btn btn-primary commit" (click)="editEvent()">ตกลง</button>
 
     </div>
 </div>
