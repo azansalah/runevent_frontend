@@ -21,7 +21,9 @@
             <td >{{event.name}}</td>
             <td>{{event.location}}</td>
             <td>{{event.id}}</td>
-            <td><a>รายละเอียด</a>|<button type="button" class="btn btn-primary add" [routerLink]="['/cms/event/edit',event.id]">แก้ไข</button>|<button  type="button" class="btn btn-primary add" (click)="deleteEvent(event.id)">ลบ</button></td>
+            <td><a>รายละเอียด</a>
+              <button type="button" class="btn btn-primary add" [routerLink]="['/cms/event/edit',event.id]">แก้ไข</button>
+              <button  type="button" class="btn btn-primary add" (click)="deleteEvent(event.id)">ลบ</button></td>
           </tr>
         </tbody>
       </table>

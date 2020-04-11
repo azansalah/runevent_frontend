@@ -27,11 +27,55 @@
 
 
 .delete-btn{   
+
+    margin-top: 35px;
     margin-left: 30px;
+    margin-bottom: 0px;
+
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-bottom-width: 6px;
+
+    padding-bottom: 1px;
+    padding-top: 1px;
+
+}
+
+.btn-danger{
+    color: #fff;
+    background-color: #aa4953;
+    border-color: #aa4953;
+}
+
+.checkbox{
+
+    padding-left: 80px;
+    padding-top: 55px;
+    padding-right: 105px;
+
+    border-top-width: 29px;
+    border-right-width: 60px;
+    
+    margin-right: 75px;
+
+
+
 }
 
 .label-pading{
+
     margin-bottom: 0px;
     padding-top: 12px;
+    
+}
 
+.form-group{
+
+    padding-right: 30px;
+
+}
+
+.btn-primary{
+    background-color: #1f618c;
+    border-color: #1e618c;
 }

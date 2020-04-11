@@ -1,13 +1,14 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
     selector: 'event-list',
     templateUrl: './event-list.component.html',
-    styleUrls: ['./event-list.component.css']
+    styleUrls: ['./event-list.component.css'],
 })
 
 export class EventListComponent implements OnInit {

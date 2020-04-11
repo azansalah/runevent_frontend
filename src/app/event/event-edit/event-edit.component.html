@@ -3,7 +3,7 @@
     <div class="login-title">
         <h1 class="title">EDIT EVENT</h1>
     </div>
-    <div class="login">
+    <div>
 
             <div class="form-group">
                 <label>ชื่องาน</label>
@@ -24,16 +24,20 @@
             <button type="button" class="btn btn-primary add" (click)="addPackage()">เพิ่มแพ็คเก็จ</button><br>
 
             <div *ngFor="let package of packages let i = index" class="row package-box">
-                <div class="row">
+                <div class="row padding">
 
-                    <div>
-                        <label>ชื่อแพ็คเก็จ :</label>
-                        <input name="package-name" type="text" [(ngModel)]="package.name" >
+                    <div class="form-group">
+                        <label class="label-pading">ชื่อแพ็คเก็จ</label>
+                        <input  class="form-control" 
+                                name="package-name" 
+                                type="text" 
+                                [(ngModel)]="package.name" >
                     </div>
                     
-                    <div>
-                        <label>วันที่</label>
+                    <div class="form-group">
+                        <label class="label-pading">วันที่</label>
                             <input
+                                class="form-control"
                                 placeholder="กำหนดวันจัดงาน"
                                 #datepickerYMD="bsDatepicker"
                                 bsDatepicker
@@ -42,36 +46,42 @@
                                 name="date">
                     </div> 
                     
-                    <div>
-                        <label>เวลา :</label>
-                        <input name="package-time" type="time" [(ngModel)]="package.time">
+                    <div class="form-group">
+                        <label class="label-pading">เวลา</label>
+                        <input  class="form-control" 
+                                name="package-time" 
+                                type="time" 
+                                [(ngModel)]="package.time">
                     </div>
 
-                    <div>
-                        <label>ค่าสมัคร(บาท) :</label>
-                        <input name="package-price" type="text" [(ngModel)]="package.price">
+                    <div class="form-group">
+                        <label class="label-pading">ค่าสมัคร(บาท)</label>
+                        <input  class="form-control" 
+                                name="package-price" 
+                                type="text" 
+                                [(ngModel)]="package.price">
                     </div>
 
-                    <div>
-                        <button type="button" class="btn btn-primary add" (click)="deletePackage(i)">ลบ</button>
+                    <div class="form-group">
+                        <button class="form-control" type="button" class="btn btn-danger delete-btn" (click)="deletePackage(i)">ลบ</button>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="padding-bottom: 30px;">
 
-                    <div style="padding-left: 80px; ">
-                        <input name="package-islimit" type="checkbox" [(ngModel)]="package.isLimit">
+                    <div class="checkbox form-group">
+                        <input name="package-islimit" 
+                        type="checkbox" 
+                        [(ngModel)]="package.isLimit">
+
                         <label>จำกัดผู้สมัคร</label>
                     </div>
 
-                    <form class="form-inline">
-
                         <div *ngIf="package.isLimit" class="form-group" style="margin-bottom: 0px; padding-top: 14px;">
-                            <label class="label-pading">จำนวนผู้สมัคร(คน) :</label>
+                            <label class="label-pading">จำนวนผู้สมัคร(คน)</label>
                             <input type="text" class="form-control" name="package-limit-count" [(ngModel)]="package.limitCount">
                         </div>
 
-                    </form>
                 </div><hr>
             </div>
 
