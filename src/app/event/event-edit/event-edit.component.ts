@@ -69,12 +69,12 @@ export class EventEditComponent implements OnInit {
     }
 
 editEvent(){
-    console.log(this.packages);
+    console.log(this.packages,'In');
     
     let packages = this.packages.map(val => ({
         id: val.id,
         name: val.name,
-        date: moment(val.date).format('YYYY-MM-DD'),
+        date: moment(val.date, 'DD-MM-YYYY').format('YYYY-MM-DD'),
         time: val.time,
         price: val.price,
         isLimit: val.isLimit,
@@ -86,7 +86,7 @@ editEvent(){
         location: this.eventLocation,
         packages: packages
     }
-    console.log(object,'object');
+    console.log(object,'Out');
 
     this.http.patch('http://api-runevent.com/event/edit/' + this.id, object).subscribe(data => {
         let result: any

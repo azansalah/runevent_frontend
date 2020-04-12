@@ -23,8 +23,16 @@
             <td>{{event.id}}</td>
             <td><a>รายละเอียด</a>
               <button type="button" class="btn btn-primary add" [routerLink]="['/cms/event/edit',event.id]">แก้ไข</button>
-              <button  type="button" class="btn btn-primary add" (click)="deleteEvent(event.id)">ลบ</button></td>
+              <button type="button" class="btn btn-primary add" (click)="openModal(template,event.id)">ลบ</button></td>
           </tr>
         </tbody>
       </table>
-</body> 
+</body>
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Do you want to confirm?</p>
+    <button type="button" class="btn  btn-primary" (click)="deleteEvent()" >Yes</button>
+    <button type="button" class="btn btn-danger" (click)="decline()">No</button>
+  </div>
+</ng-template>

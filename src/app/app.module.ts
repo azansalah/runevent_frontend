@@ -8,6 +8,9 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
@@ -40,6 +43,8 @@ import { EventEditComponent} from './event/event-edit/event-edit.component';
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule,
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
     //FontAwesomeModule,
     RouterModule.forRoot([
       {

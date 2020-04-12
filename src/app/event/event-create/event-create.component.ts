@@ -32,16 +32,17 @@ export class EventCreateComponent implements OnInit {
     }
 
     createEvent(){
-        console.log(this.packages, 'package');
+        console.log(this.packages, 'package in');
         
         let packages = this.packages.map(val =>({
             name: val.name,
-            date: moment(val.date).format('YYYY-MM-DD'),
+            date: moment(val.date, 'DD-MM-YYYY').format('YYYY-MM-DD'),
             time: val.time,
             price: val.price,
             isLimit: val.isLimit,
             limitCount: val.limitCount
         }));
+        console.log(packages, 'package out');
 
         let opject = {
             name: this.name,
@@ -49,7 +50,7 @@ export class EventCreateComponent implements OnInit {
             packages : packages
               
         }
-
+        
         
         this.http.post('http://api-runevent.com/event/add',opject).subscribe(data => {
             
