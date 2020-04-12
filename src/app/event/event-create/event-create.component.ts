@@ -23,17 +23,13 @@ export class EventCreateComponent implements OnInit {
     public packages: any[]=[]
 
     ngOnInit() {
-        let token = localStorage.getItem('token');
-        console.log(token);
-        
+        let token = localStorage.getItem('token');        
         if(!token) {
             this.router.navigate(['cms/login']);
         }
     }
 
-    createEvent(){
-        console.log(this.packages, 'package in');
-        
+    createEvent(){        
         let packages = this.packages.map(val =>({
             name: val.name,
             date: moment(val.date, 'DD-MM-YYYY').format('YYYY-MM-DD'),
@@ -42,7 +38,6 @@ export class EventCreateComponent implements OnInit {
             isLimit: val.isLimit,
             limitCount: val.limitCount
         }));
-        console.log(packages, 'package out');
 
         let opject = {
             name: this.name,
@@ -83,8 +78,6 @@ export class EventCreateComponent implements OnInit {
 
         this.packages.push(objPackage)
 
-        console.log(date.format('YYYY-MM-DD'));
-        console.log(this.packages);
     }
 
     deletePackage(index){

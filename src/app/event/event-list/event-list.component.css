@@ -1,14 +1,55 @@
-.container{
 
-    width: 100%;
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
+.btn{
+
+    width: 102px;
+    height: 38px;
 
 }
+
+.btn-create{
+
+    margin-top: 50px;
+    margin-left: 540px;
+    width: 226px;
+
+    color: #fff;
+    background-color: #47cffb;
+    border-color: #47cffb;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #1f618c;
+    border-color: #1f618c;
+}
+
 .title{
+
     padding-top: 50px;
     padding-bottom: 20px;
+
+}
+
+.modal-magin{
+
+    margin-right: 30px;
+
+}
+
+.manage-btn{
+    
+    margin-right: 20px;
+
+}
+
+.delete-btn{
+    color: #fff;
+    background-color: #aa4953;
+    border-color: #aa4953;
+}
+
+.package-box{
+    display: block;
+    margin-left: 40px;
 
 }

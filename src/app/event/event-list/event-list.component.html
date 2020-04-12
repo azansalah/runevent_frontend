@@ -1,38 +1,86 @@
-<body>
-    <navbar></navbar>
+<navbar></navbar>
 
+<div class="container">
+  <div class="row">
     <h2 class="title">Event List</h2>
-
-    <!-- <h1>
-    <fa-icon [icon]="faCoffee"></fa-icon>
-    </h1> -->
-    
-    <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">ชื่องาน</th>
-            <th scope="col">สถานที่</th>
-            <th scope="col">วันจัดงาน</th>
-            <th scope="col">จัดการ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let event of events let i = index"  class="container">
-            <td >{{event.name}}</td>
-            <td>{{event.location}}</td>
-            <td>{{event.id}}</td>
-            <td><a>รายละเอียด</a>
-              <button type="button" class="btn btn-primary add" [routerLink]="['/cms/event/edit',event.id]">แก้ไข</button>
-              <button type="button" class="btn btn-primary add" (click)="openModal(template,event.id)">ลบ</button></td>
-          </tr>
-        </tbody>
-      </table>
-</body>
-
-<ng-template #template>
-  <div class="modal-body text-center">
-    <p>Do you want to confirm?</p>
-    <button type="button" class="btn  btn-primary" (click)="deleteEvent()" >Yes</button>
-    <button type="button" class="btn btn-danger" (click)="decline()">No</button>
+    <button type="button" class="btn manage-btn  btn-create" [routerLink]="['/cms/event/create']">สร้างอีเวนท์</button>
   </div>
-</ng-template>
+  <table class="table" style="text-align: center;">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" >ชื่องาน</th>
+        <th scope="col" >สถานที่</th>
+        <th scope="col" >วันจัดงาน</th>
+        <th scope="col" >จัดการ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events let i = index"  class="container">
+        <td >{{event.name}}</td>
+        <td>{{event.location}}</td>
+        <td>{{event.id}}</td>
+        <td>
+          <button type="button" class="btn manage-btn btn-primary" (click)="modalEventDetail(eventDetail,event.id)">รายละเอียด</button>
+          <button type="button" class="btn manage-btn btn-primary" [routerLink]="['/cms/event/edit',event.id]">แก้ไข</button>
+          <button type="button" class="btn manage-btn delete-btn" (click)="openModal(template,event.id)">ลบ</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+
+  
+
+    <ng-template #template>
+      <div class="modal-body text-center">
+        <p>Do you want to confirm?</p>
+        <button type="button" class="btn modal-magin btn-primary" (click)="deleteEvent()" >Yes</button>
+        <button type="button" class="btn btn-danger" (click)="decline()">No</button>
+      </div>
+    </ng-template>
+
+    <ng-template #eventDetail>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">รายละเอียดอีเวนท์</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <div class="modal-body">
+      <div class="row" style="margin-left: 20px;">
+        <div>
+          <label>ชื่องาน : {{eventName}}</label>
+        </div>
+      </div>
+      <div class="row" style="margin-left: 20px;">
+        <div>
+          <label>สถานที่จัดงาน : {{eventLocation}}</label>
+        </div>
+      </div>
+      <div class="row" style="margin-left: 20px;">
+        <div>
+          <label>แพ็คเกจ :</label>
+        </div>
+      </div>
+
+      <div *ngFor="let package of packages let i = index" class="package-box">
+        <div class="row">
+          <div class="col-3">
+            <label>ชื่อ : {{package.name}}</label>
+          </div>
+          <div class="col-3">
+            <label>วันที่ : {{package.date}}</label>
+          </div>
+          <div class="col-3">
+            <label>เวลา : {{package.time}}</label>
+          </div>
+          <div class="col-3">
+            <label>ราคา : {{package.price}}</label>
+          </div>
+        </div><hr>
+
+      </div>
+
+    </div>
+    </ng-template>
+

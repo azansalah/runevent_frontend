@@ -20,8 +20,13 @@
 }
 
 .btc{
-    margin-left: 10px;
+
     background-color: #aa4953;
     border-color: #aa4953;
-    
+
+    margin-left: 980px;  
+}
+
+.navbar-brand{
+    margin-left: 20px; 
 }

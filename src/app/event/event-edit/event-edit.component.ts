@@ -59,9 +59,7 @@ export class EventEditComponent implements OnInit {
                     isLimit: val.isLimit,
                     limitCount: val.limitCount,
                 }));
-                
-                console.log(this.packages);
-                
+                                
             }else{
 
             }
@@ -69,7 +67,6 @@ export class EventEditComponent implements OnInit {
     }
 
 editEvent(){
-    console.log(this.packages,'In');
     
     let packages = this.packages.map(val => ({
         id: val.id,
@@ -86,7 +83,6 @@ editEvent(){
         location: this.eventLocation,
         packages: packages
     }
-    console.log(object,'Out');
 
     this.http.patch('http://api-runevent.com/event/edit/' + this.id, object).subscribe(data => {
         let result: any
@@ -116,7 +112,6 @@ editEvent(){
         }
 
         this.packages.push(objPackage)  
-        console.log(this.packages);
     }
 
     deletePackage(index){
