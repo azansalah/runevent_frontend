@@ -1,13 +1,21 @@
 
-<body class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg" >
+    <nav class="navbar navbar-expand-lg navbar-light bg">
         <img src="assets/img/angular-logo.png" href="cms/event/list" style="width: 45px;">
-        <a class="navbar-brand" href="cms/event/list">RUN EVENT</a>
+        <a class="navbar-brand" href="#">RUNEVENT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <button type="button" class="btn btn-danger btc" (click)="signOut()">Signout</button>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-danger " (click)="signOut()">Signout</button>
         </div>
-    </nav>
- </body>
+      </nav>
+
  
 
   

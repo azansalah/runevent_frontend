@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventCreateComponent} from './event/event-create/event-create.component';
 import { EventEditComponent} from './event/event-edit/event-edit.component';
+import { WebsiteEventListComponent} from './website/event/event-list/website-event-list.component';
 
 
 
@@ -32,6 +33,7 @@ import { EventEditComponent} from './event/event-edit/event-edit.component';
     EventListComponent,
     EventCreateComponent,
     EventEditComponent,
+    WebsiteEventListComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ import { EventEditComponent} from './event/event-edit/event-edit.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: LoginComponent
+        component: WebsiteEventListComponent
       },
       {
         path: 'cms/login',

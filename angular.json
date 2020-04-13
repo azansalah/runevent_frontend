@@ -23,8 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "styles/bootstrap-4.4.1-dist/css/bootstrap.min.css",
-             
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
