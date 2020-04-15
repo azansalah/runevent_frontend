@@ -10,6 +10,9 @@ import {Router} from "@angular/router";
 
 export class WebsiteEventListComponent {
 
+    isCollapsed = true;
+    
+
     constructor(
         private http: HttpClient,
         private router: Router   
@@ -19,7 +22,7 @@ export class WebsiteEventListComponent {
     public events: any = []
 
     ngOnInit() {
-       
+       this.getEvent()
     }
     
     getEvent() {        
@@ -29,9 +32,19 @@ export class WebsiteEventListComponent {
             result = data
 
             if(result.status == '200') {
+                let events = result.data.result
+
+                this.events = events.map(val => ({
+                    id: val.id,
+                    name: val.name,
+                    location: val.location,
+                    packages: val.packages,
+                    isCollapsed: true
+                }));
+                console.log(this.events);
                 
             }else {
-    
+                this.events = []
             }
         });
     }

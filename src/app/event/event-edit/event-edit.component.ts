@@ -16,7 +16,7 @@ export class EventEditComponent implements OnInit {
         private http: HttpClient,
         private activatedRoute: ActivatedRoute
     ) {}
-
+    public site = 'cms'
     public eventName: any
     public eventLocation: any
     public packages: any = []

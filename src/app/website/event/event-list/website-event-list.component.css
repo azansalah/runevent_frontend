@@ -1,0 +1,144 @@
+
+.title-photo{
+    position: absolute;
+    top: 160px;
+    left: 110px;
+
+    font-size: 3.5rem;
+    font-weight: 1000;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: left;
+
+}
+
+.title-sub-photo{
+    position: absolute;
+    margin-left: 110px;
+    margin-top: 235px;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: left; 
+}
+
+
+.btn-primary{
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 1000;
+
+    width: 796px;
+    margin-bottom: 20px;
+    height: 64px;
+
+
+    color: #fff;
+    background-color: #1f618c;
+    border-color: #1f618c;
+}
+
+.btn-regis{
+    /* color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500; */
+    height: 39px;
+    width: 136px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-top: 10px;
+    
+    color: #fff;
+    background-color: #1f618c;
+    border-color: #1f618c;
+}
+.bg {
+    /* The image used */
+    background-image: url("/src/assets/img/sidebar-photo.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 500px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: rgb(50, 111, 151);
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+
+    margin-top: 20px;
+    margin-left: 530px;
+    
+    padding: 20px 20px;
+    height: 1000px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .btn-primary{
+        width: 416px;
+        }
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .btn-primary{
+        width: 461px;
+        }
+     
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+
+  @media screen and (min-width: 1000px) {
+    .page-footer{
+        display: none;
+        }
+  }
+
+
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }

@@ -15,7 +15,7 @@ export class EventCreateComponent implements OnInit {
         private router: Router,
         private http: HttpClient
     ) {}
-
+    public site = 'cms'
     public name: any
     public location: any
     public date: any

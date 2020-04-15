@@ -1,5 +1,8 @@
-.bg{
+.bg-cms{
     background-color: rgb(149, 182, 204)
+}
+.bg-site{
+    background-color: rgb(34, 37, 39)
 }
 
 .btn-outline-success {
@@ -10,13 +13,20 @@
 }
 .navbar-light .navbar-brand {
     color: #20618c;
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 1000;
     margin-right: 3rem;
 }
 
+.nav-link{
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 1000;
+
+}
+
 .navbar-collapse{
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .btc{

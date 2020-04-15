@@ -14,9 +14,11 @@ import * as moment from 'moment';
 
 export class EventListComponent implements OnInit {
 
+          
   modalRef: BsModalRef;
   message: string;
   
+  public site = 'cms'
   public eventName: any
   public eventLocation: any
   public packages: any = []

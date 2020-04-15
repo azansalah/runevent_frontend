@@ -10,6 +10,10 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+
+
 
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -20,8 +24,6 @@ import { EventListComponent } from './event/event-list/event-list.component';
 import { EventCreateComponent} from './event/event-create/event-create.component';
 import { EventEditComponent} from './event/event-edit/event-edit.component';
 import { WebsiteEventListComponent} from './website/event/event-list/website-event-list.component';
-
-
 
 
 
@@ -43,10 +45,12 @@ import { WebsiteEventListComponent} from './website/event/event-list/website-eve
     HttpClientModule,
     TooltipModule.forRoot(),
     BrowserAnimationsModule,
+    CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TimepickerModule,
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
+    AccordionModule.forRoot(),
     //FontAwesomeModule,
     RouterModule.forRoot([
       {
@@ -71,7 +75,9 @@ import { WebsiteEventListComponent} from './website/event/event-list/website-eve
       }
     ]),
     BrowserAnimationsModule,
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    CollapseModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

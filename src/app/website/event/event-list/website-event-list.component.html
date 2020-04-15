@@ -1,0 +1,80 @@
+
+<div class="sidebar bg-img" [ngStyle]="{'background' : 'url(./assets/img/sidebar-photo.jpg)'}">
+    <div class="title-photo">Registration</div>
+    <div class="title-sub-photo">ลงทะเบียน เข้าร่วมงานวิ่ง</div>   
+    <!-- <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a> -->
+</div>
+<navbar [customNavbar]="site"></navbar>
+<div class="content">
+    <div class="row">
+        <h2 class="title">รายการงานวิ่ง</h2>
+    </div><br>
+
+    <div class="row">
+
+        <div *ngFor="let event of events; let i = index" [attr.data-index] = "i" class="col-12">
+                <button type="button" class="btn btn-primary" (click)="event.isCollapsed = !event.isCollapsed"
+                 [attr.aria-expanded]="event.id" aria-controls="collapseBasic">{{event.name}}
+                </button> 
+            <div id="collapseBasic" [collapse]="event.isCollapsed" [isAnimated]="true">
+                <div class="well well-lg card card-block card-header slideDown" ng-hide="event.isCollapsed">
+                    <div class="row">
+                        <h3 style="margin-left: 40px; margin-top: 20px; margin-right: 100px;">{{event.name}}</h3>
+                        
+                    </div>
+                    <div class="row">
+                        <h5 style=" margin-left: 40px; margin-top: 10px; margin-bottom: 50px;">สถานที่จัดงาน : {{event.location}}</h5>
+                    </div>
+                    <div class="card">
+                            <div class="card-header row expand-collapse-content" style="margin-bottom: 20px; margin-bottom: 20px;padding-left: 25px;margin-left: 0px;margin-right: 0px;"> 
+                                <h5>แพ็คเกจ</h5>
+                            </div>
+                            <div class="card-body" *ngFor="let package of event.packages; let i = index" [attr.data-index] = "i" style="padding-left: 30px; height: 190px;">
+                                <div class="row">
+                                    <div class="cal-3" style="margin-left: 40px;">
+                                        <h4 style="font-size: x-large;">{{package.name}}</h4>
+                                    </div>
+                                    <div class="col-3" style=" margin-top: 4px;">
+                                        <p>วันที่ : {{package.date}}</p>
+                                    </div>
+                                    <div class="col-3" style="margin-top: 4px;">
+                                        <p>เวลา : {{package.time}}</p>
+                                    </div>
+                                    <div class="col-3" style="margin-top: 4px;">
+                                        <p>ค่าสมัคร : {{package.price}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div *ngIf="package.isLimit" class="col-6" style="margin-left: 25px; margin-top: 10px;">
+                                        <p>จำนวนผู้สมัคร {{package.countRegis}}/{{package.limitCount}}</p>
+                                    </div>
+                                    <div *ngIf="!package.isLimit" class="col-6" style="margin-left: 25px; margin-top: 10px;">
+                                        <p>ไม่่จำกัดจำนวนผู้สมัคร</p>
+                                    </div>
+                                    <div *ngIf="package.canRegis" class="col-6">
+                                        <button type="button" class="btn btn-regis">สมัคร</button>
+                                    </div>
+                                    <div *ngIf="!package.canRegis" class="col-6">
+                                        <button type="button" class="btn btn-regis" disabled>สมัคร</button>
+                                    </div>
+                                </div><br><br>
+                            </div>
+                    </div>  
+                </div>
+            </div><br>  
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer font-small" style="color: rgb(103, 122, 129); background: rgb(34, 37, 39);">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> Deh676</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>

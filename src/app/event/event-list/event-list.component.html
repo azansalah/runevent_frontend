@@ -1,4 +1,4 @@
-<navbar></navbar>
+<navbar [customNavbar]="site"></navbar>
 
 <div class="container">
   <div class="row">
@@ -33,9 +33,9 @@
 
     <ng-template #template>
       <div class="modal-body text-center">
-        <p>Do you want to confirm?</p>
-        <button type="button" class="btn modal-magin btn-primary" (click)="deleteEvent()" >Yes</button>
-        <button type="button" class="btn btn-danger" (click)="decline()">No</button>
+        <p>ยืนยันการลบ</p>
+        <button type="button" class="btn modal-magin btn-primary" (click)="deleteEvent()" >ลบ</button>
+        <button type="button" class="btn btn-danger" (click)="decline()">ยกเลิก</button>
       </div>
     </ng-template>
 
@@ -79,6 +79,9 @@
           </div><br>
           <div *ngIf="package.isLimit" class="col-3">
             <label>จำกัดผู้สมัคร : {{package.limitCount}} คน</label>
+          </div>
+          <div *ngIf="!package.isLimit" class="col-3">
+            <label>ไม่จำกัดจำกัดผู้สมัคร</label>
           </div>
         </div><hr>
 
