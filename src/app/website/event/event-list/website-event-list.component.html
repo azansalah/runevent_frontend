@@ -55,7 +55,7 @@
                                         <p>ไม่่จำกัดจำนวนผู้สมัคร</p>
                                     </div>
                                     <div *ngIf="package.canRegis" class="col-6">
-                                        <button type="button" class="btn btn-regis">สมัคร</button>
+                                        <button type="button" class="btn btn-regis" [routerLink]="['/register',package.id]">สมัคร</button>
                                     </div>
                                     <div *ngIf="!package.canRegis" class="col-6">
                                         <button type="button" class="btn btn-regis" disabled>สมัคร</button>

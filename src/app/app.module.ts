@@ -24,6 +24,7 @@ import { EventListComponent } from './event/event-list/event-list.component';
 import { EventCreateComponent} from './event/event-create/event-create.component';
 import { EventEditComponent} from './event/event-edit/event-edit.component';
 import { WebsiteEventListComponent} from './website/event/event-list/website-event-list.component';
+import { WebsiteRegisterComponent} from './website/event/register/website-event-register.component';
 
 
 
@@ -36,6 +37,7 @@ import { WebsiteEventListComponent} from './website/event/event-list/website-eve
     EventCreateComponent,
     EventEditComponent,
     WebsiteEventListComponent,
+    WebsiteRegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +58,10 @@ import { WebsiteEventListComponent} from './website/event/event-list/website-eve
       {
         path: '',
         component: WebsiteEventListComponent
+      },
+      {
+        path: 'register/:id',
+        component: WebsiteRegisterComponent
       },
       {
         path: 'cms/login',

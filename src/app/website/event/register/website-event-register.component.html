@@ -1,0 +1,34 @@
+<navbar [customNavbar]="site"></navbar>
+<div class="container">
+    <div class="row">
+        <h1 class="title">กรอกข้อมูลเพื่อลงทะเบียน</h1>
+    </div>
+    <div class="row">
+        <label>รหัสบัตรประชาชน</label>
+        <input type="text" [(ngModel)]="cardNo" 
+        name="cardNo">
+    </div>
+    <div class="row">
+        <label>คำนำหน้า</label>
+        <input type="text" [(ngModel)]="tName">
+    </div>
+    <div class="row">
+        <label>ชื่อ</label>
+        <input type="text" [(ngModel)]="fName">
+    </div>
+    <div class="row">
+        <label>นามกุล</label>
+        <input type="text" [(ngModel)]="lName">
+    </div>
+    <div class="row">
+        <label>เบอร์โทร</label>
+        <input type="text" [(ngModel)]="telephone">
+    </div>
+    <div class="row">
+        <label>อีเมลล์</label>
+        <input type="text" [(ngModel)]="email">
+    </div>
+    <div class="row">
+        <button type="button" (click)="eventRegister()">ตกลง</button>
+    </div>
+</div>
