@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import * as moment from 'moment';
-//import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-
 
 @Component({
     selector: 'event-list',
@@ -24,6 +22,12 @@ export class EventListComponent implements OnInit {
   public packages: any = []
   public idForDelete: any=null
   public events
+
+  constructor( 
+    private router: Router,
+    private http: HttpClient,
+    private modalService: BsModalService
+) {}
  
   openModal(template: TemplateRef<any>,id) {
     this.idForDelete = id
@@ -62,17 +66,7 @@ export class EventListComponent implements OnInit {
             
         });
     
-  }
-
-    constructor( 
-        private router: Router,
-        private http: HttpClient,
-        private modalService: BsModalService
-    ) {}
-    
-    
-    //public faCoffee = faCoffee;
-
+  }    
 
     ngOnInit() {
 

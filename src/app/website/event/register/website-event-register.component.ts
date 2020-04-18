@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from "@angular/router";
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 
 
@@ -11,8 +12,11 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 
 export class WebsiteRegisterComponent implements OnInit {
-    constructor( 
-        private router: Router,
+
+    @ViewChild('childModal', { static: false }) childModal: ModalDirective;
+   
+    constructor(
+        private router: Router, 
         private http: HttpClient,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -26,6 +30,25 @@ export class WebsiteRegisterComponent implements OnInit {
     public lName:any
     public telephone:any
     public email:any
+    public message:any
+
+    
+ 
+    showChildModal(code: any){
+        if(code == '1'){
+            this.message = 'คุณได้มัครแพ็คเก็จนี้ไปแล้ว'
+        } else if(code == '2'){
+            this.message = 'แพ็คเก็จนี้เต็มแล้ว'
+        } else if(code == '3'){
+            this.message = 'คุณได้สมัครแพ็คเก็จนี้เรียบร้อยแล้ว'
+        }
+        this.childModal.show();
+    }
+
+    hideChildModal(): void {
+        this.childModal.hide();
+        this.router.navigate(['']);
+    }
 
     ngOnInit() {
         this.activatedRouteUrlSubscribe = this.activatedRoute.params.subscribe(
@@ -39,7 +62,6 @@ export class WebsiteRegisterComponent implements OnInit {
     
     
     eventRegister(){        
-        
         
         let object = {
             cardNo: this.cardNo,
@@ -57,7 +79,7 @@ export class WebsiteRegisterComponent implements OnInit {
                 result = data
 
                 if(result.status == '200') {
-                    this.router.navigate(['']);
+                    this.showChildModal('3');
                 }
             },
             error => {
@@ -67,11 +89,11 @@ export class WebsiteRegisterComponent implements OnInit {
                 console.log(error, 'error');
                 
                 if(resultError.error.error.code = '01'){
-                    alert("คุณได้สมัครแพ็คเกจนี้ไปแล้ว" + resultError.status)
+                    this.showChildModal('2');
                 }  
 
                 if(resultError.error.error.code = '02'){
-                    alert("แพ็คเกจนี้เต็มแล้ว" + resultError.status)
+                    this.showChildModal('1');
                 }
             }   
         );

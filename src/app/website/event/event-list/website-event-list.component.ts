@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Router} from "@angular/router";
 
+
 @Component({
     selector: 'website-event-list',
     templateUrl: './website-event-list.component.html',
@@ -10,16 +11,17 @@ import {Router} from "@angular/router";
 
 export class WebsiteEventListComponent {
 
-    isCollapsed = true;
     
-
-    constructor(
-        private http: HttpClient,
-        private router: Router   
-    ) {}
+    isCollapsed = true;
 
     public site = 'website'
     public events: any = []
+
+     constructor(
+        private http: HttpClient,
+        private router: Router
+         
+    ) {}
 
     ngOnInit() {
        this.getEvent()

@@ -1,34 +1,62 @@
+<div class="sidebar bg-img" [ngStyle]="{'background' : 'url(./assets/img/sidebar-photo.jpg)'}">
+    <div class="title-photo">Registration</div>
+    <div class="title-sub-photo">ลงทะเบียน เข้าร่วมงานวิ่ง</div>   
+    <!-- <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a> -->
+</div>
 <navbar [customNavbar]="site"></navbar>
-<div class="container">
-    <div class="row">
+<div class="content">
+    <div class="row" style="margin-bottom: 20px;">
         <h1 class="title">กรอกข้อมูลเพื่อลงทะเบียน</h1>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
         <label>รหัสบัตรประชาชน</label>
-        <input type="text" [(ngModel)]="cardNo" 
-        name="cardNo">
+        <input class="form-control" type="text" pattern=".{13}" title="เลขบัตรประชาชนเกินหรือไม่ครบ 13 หลัก" [(ngModel)]="cardNo" name="cardNo">
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
         <label>คำนำหน้า</label>
-        <input type="text" [(ngModel)]="tName">
+        <input class="form-control" type="text" [(ngModel)]="tName">
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
         <label>ชื่อ</label>
-        <input type="text" [(ngModel)]="fName">
+        <input class="form-control" type="text" [(ngModel)]="fName">
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
         <label>นามกุล</label>
-        <input type="text" [(ngModel)]="lName">
+        <input class="form-control" type="text" [(ngModel)]="lName">
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
         <label>เบอร์โทร</label>
-        <input type="text" [(ngModel)]="telephone">
+        <input class="form-control" type="text" pattern=".{10}" title="เบอร์โทรเกินหรือไม่ครบ 10 หลัก" [(ngModel)]="telephone">
     </div>
-    <div class="row">
-        <label>อีเมลล์</label>
-        <input type="text" [(ngModel)]="email">
+    <div class="row" style="margin-bottom: 20px;">
+        <label>อีเมล</label>
+        <input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="อีเมลไม่ถูกต้อง" [(ngModel)]="email">
     </div>
-    <div class="row">
-        <button type="button" (click)="eventRegister()">ตกลง</button>
+    <div class="row" style="margin-bottom: 20px;">
+        <button class="btn btn-regis" type="button" (click)="eventRegister()">ตกลง</button>
     </div>
 </div>
+
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        {{message}}
+      </div>
+      <div>
+        <button class="btn btn-regis" type="button" (click)="hideChildModal()" style="margin-left: 100px; width: 86px;">ตกลง</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
