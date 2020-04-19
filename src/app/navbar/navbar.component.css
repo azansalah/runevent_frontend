@@ -18,8 +18,9 @@
     margin-right: 3rem;
 }
 
-.nav-link{
-    color: #ffffff;
+.nav-link {
+    margin-right: 15px; 
+    color: #20618c;
     font-size: 1.5rem;
     font-weight: 1000;
 

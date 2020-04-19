@@ -12,6 +12,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 
@@ -25,6 +26,7 @@ import { EventCreateComponent} from './event/event-create/event-create.component
 import { EventEditComponent} from './event/event-edit/event-edit.component';
 import { WebsiteEventListComponent} from './website/event/event-list/website-event-list.component';
 import { WebsiteRegisterComponent} from './website/event/register/website-event-register.component';
+import { DashBoardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -38,6 +40,7 @@ import { WebsiteRegisterComponent} from './website/event/register/website-event-
     EventEditComponent,
     WebsiteEventListComponent,
     WebsiteRegisterComponent,
+    DashBoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,11 +56,16 @@ import { WebsiteRegisterComponent} from './website/event/register/website-event-
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
+    HighchartsChartModule,
     //FontAwesomeModule,
     RouterModule.forRoot([
       {
         path: '',
         component: WebsiteEventListComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashBoardComponent
       },
       {
         path: 'register/:id',

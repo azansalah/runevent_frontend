@@ -1,0 +1,61 @@
+<navbar [customNavbar]="site"></navbar>
+
+<div class="container">
+
+    <div class="row">
+        <h1 class="title" style="margin-top: 20px; margin-bottom: 30px;">DashBoard</h1>
+    </div>
+    <div class="row">
+        <h3 class="title" style="margin-top: 5px; margin-bottom: 30px;">กราฟแสดงจำนวนคนที่สมัครแพ็คเกจทั้งของทุกอีเวนท์ในแต่ละวัน</h3>
+    </div>
+
+    <highcharts-chart *ngIf="chartOption && chartOption.series" [callbackFunction]="cb"
+        [Highcharts]="Highcharts" [options]="chartOption" style="height:100%; width:100%; display:block;">
+    </highcharts-chart>
+
+    <div class="row">
+        <div class="col-6">
+            <h3 class="title" style="margin-top: 50px; margin-bottom: 30px;">แพ็คเกจที่มีคนสมัครเยอะที่สุด</h3>
+                <table class="table" style="text-align: center;">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col" >#</th>
+                        <th scope="col" >ชื่อแพ็คเกจ</th>
+                        <th scope="col" >ชื่องาน</th>
+                        <th scope="col" >ราคาแพ็ึคเกจ</th>
+                        <th scope="col" >จำนวนผู้สมัคร</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let packagestat of packagestats, let i = index"  class="container">
+                        <td>{{i + 1}}</td>
+                        <td>{{packagestat.packageName}}</td>
+                        <td>{{packagestat.eventName}}</td>
+                        <td>{{packagestat.packagePrice}}</td>
+                        <td>{{packagestat.countRegis}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+    
+        <div class="col-6">
+            <h3 class="title" style="margin-top: 50px; margin-bottom: 30px;">อีเวนท์ที่มีคนสมัครเยอะที่สุด</h3>
+                <table class="table" style="text-align: center;">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col" >#</th>
+                        <th scope="col" >ชื่องาน</th>
+                        <th scope="col" >จำนวนผู้สมัคร</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let eventstat of eventstats, let i = index"  class="container">
+                        <td>{{i + 1}}</td>
+                        <td>{{eventstat.eventName}}</td>
+                        <td>{{eventstat.countRegis}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>

@@ -45,7 +45,7 @@ export class EventListComponent implements OnInit {
         if(result.status == '200'){
 
             let event = result.data.result
-
+        
                 this.eventName = event.name
                 this.eventLocation = event.location
                 this.packages = event.packages.map(val => ({

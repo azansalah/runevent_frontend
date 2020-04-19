@@ -8,17 +8,17 @@
   <table class="table" style="text-align: center;">
     <thead class="thead-light">
       <tr>
+        <th scope="col" >#</th>
         <th scope="col" >ชื่องาน</th>
         <th scope="col" >สถานที่</th>
-        <th scope="col" >แก้ไขล่าสุดเมื่อ</th>
         <th scope="col" >จัดการ</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let event of events let i = index let package of packages"  class="container">
+        <td>{{i+1}}</td>
         <td >{{event.name}}</td>
         <td>{{event.location}}</td>
-        <td>{{package.id}}</td>
         <td>
           <button type="button" class="btn manage-btn btn-primary" (click)="modalEventDetail(eventDetail,event.id)">รายละเอียด</button>
           <button type="button" class="btn manage-btn btn-primary" [routerLink]="['/cms/event/edit',event.id]">แก้ไข</button>
