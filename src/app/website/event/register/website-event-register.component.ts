@@ -13,7 +13,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 
 export class WebsiteRegisterComponent implements OnInit {
 
-    @ViewChild('childModal', { static: false }) childModal: ModalDirective;
+    @ViewChild('childModal', { static: false } as any ) childModal: ModalDirective;
    
     constructor(
         private router: Router, 
